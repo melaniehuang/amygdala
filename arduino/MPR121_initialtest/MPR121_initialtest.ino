@@ -20,9 +20,6 @@
 #include "Adafruit_MPR121.h"
 #include <Keyboard.h>
 
-int keySequence[] = {53, 52, 51, 50, 49, 48};
-int count = 0;
-
 // You can have up to 4 on one i2c bus but one is enough for testing!
 Adafruit_MPR121 cap = Adafruit_MPR121();
 
@@ -56,14 +53,20 @@ void loop() {
 
   for (uint8_t i = 0; i < 12; i++) {
     // it if *is* touched and *wasnt* touched before, alert!
-    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i))) {
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 0)) {
       Serial.print(i); Serial.println(" touched"); 
-      if (count == 16){
-        count = 0;
-      } 
-      Keyboard.write(keySequence[count]);
-      count++;
-    }
+      Keyboard.write(48);
+    } 
+    
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 1)) {
+      Serial.print(i); Serial.println(" touched"); 
+      Keyboard.write(49);
+    } 
+    
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 2)) {
+      Serial.print(i); Serial.println(" touched"); 
+      Keyboard.write(50);
+    } 
     // if it *was* touched and now *isnt*, alert!
 
     if (!(currtouched & _BV(i)) && (lasttouched & _BV(i))) {
