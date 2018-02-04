@@ -9,30 +9,38 @@ var aPrev;
 
 var selectBoxes = {
   82: "hexA0", // R
-  84: "hexA1", // T
-  89: "hexA2", // Y
-  85: "hexA3", // U
-  73: "hexA4", // I
-  79: "hexA5", // D
-  80: "hexB0", // P
-  71: "hexB1", // G 
-  72: "hexB2", // H
-  74: "hexB3", // J
-  75: "hexB4", // K
-  76: "hexB5", // L
+  // 84: "hexA1", // T
+  // 89: "hexA2", // Y
+  // 85: "hexA3", // U
+  // 73: "hexA4", // I
+  // 79: "hexA5", // D
+  // 80: "hexB0", // P
+  // 71: "hexB1", // G 
+  // 72: "hexB2", // H
+  // 74: "hexB3", // J
+  // 75: "hexB4", // K
+  // 76: "hexB5", // L
 };
 
 var selectChannels = {};
 
 var selectValues = {
-  48: ["0", "8"], // 0
-  49: ["1", "9"], // 1
-  50: ["2", "A"], // 2
-  51: ["3", "B"], // 3
-  52: ["4", "C"], // 4
-  53: ["5", "D"], // 5
-  54: ["6", "E"], // 6
-  55: ["7", "F"], // 7
+  48: ["0"], // 0
+  49: ["1"], // 1
+  50: ["2"], // 2
+  51: ["3"], // 3
+  52: ["4"], // 4
+  53: ["5"], // 5
+  54: ["6"], // 6
+  55: ["7"], // 7
+  56: ["8"], // 8
+  57: ["9"], // 9
+  65: ["A"], // A
+  66: ["B"], // B
+  67: ["C"], // C
+  68: ["D"], // D
+  69: ["E"], // E
+  70: ["F"], // F
 };
 
 var selectNum = selectBoxes[82];
@@ -48,7 +56,6 @@ function setup(){
   canvas.parent("rothkoCanvas");
   origin = createVector(random(10,windowWidth-10),random(10,windowHeight-10));
   background(144,133,125);
-  clearPainting();
 }
 
 function draw(){
@@ -56,38 +63,12 @@ function draw(){
   var colorA = mixPaint(getPaint("A")); 
   var colorB = mixPaint(getPaint("B"));  
 
-  rothko();
   paintBreak++;
 
   if (paintBreak == paintGap){
     createPaint(1, colorA, colorB, 200,200);
     paintBreak = 0;
   }
-}
-
-function rothko(){
-  noStroke();
-  rectMode(CORNERS);
-  i++;
-  var wr = random(-1,1);
-  var hr = random(-1,1);
-  fill(220,203,187,random(1,10));
- 
-  if (i%100 == 0){
-    origin = createVector(random(10,windowWidth-10),random(10,windowHeight-10));
-    i = 0;
-    horizontal++;
-  }
- 
-  if (horizontal == 5){
-    fill(220,203,187,10);
-    rect(origin.x, origin.y,origin.x + 300,windowHeight);
-    horizontal = 0;
-  }
-
-  rect(origin.x,origin.y,origin.x - w*wr,origin.y - h*hr);
-  fill(220,203,187,random(1,5));
-  rect(origin.x,origin.y,origin.x - w*wr,origin.y - h*hr);
 }
 
 function getPaint(s){
@@ -106,7 +87,7 @@ function mixPaint(h){
     parseInt(hexColor.substring(2,4), 16),
     parseInt(hexColor.substring(4,6), 16)
   ];
-  return color(colorRGB[0],colorRGB[1],colorRGB[2],80);
+  return color(colorRGB[0],colorRGB[1],colorRGB[2],90);
 }
 
 function createPaint(num, c1, c2, paintWidth, paintLength){
@@ -141,19 +122,12 @@ function createPaint(num, c1, c2, paintWidth, paintLength){
        xoff = xoff + 1;
        var n = noise(xoff);   
        noFill();
-       strokeWeight(1);
+       strokeWeight(2);
        var interB = lerpColor(from, to, n);  
        bezier(x1, y1+i, x2, y2+i, x3, y3+i, x4, y4+i);
-       stroke(interB, 150);  
+       stroke(interB, 200);  
     }
    }
-}
-
-function clearPainting() {
-  setInterval(function(){
-    saveCanvas(canvas, "lastmachine", "jpg");
-    clear();
-  }, 120000); //60000 = 1 min
 }
 
 document.addEventListener('keydown', function(event) {
@@ -169,9 +143,5 @@ document.addEventListener('keydown', function(event) {
     let channel = selectChannels[selectNum];
 
     newvalue.value = hexDigit[channel];
-
-    if (event.keyCode == 55) {
-      selectChannels[selectNum] = (channel + 1) % 2;
-    }
   }
 }, true);
