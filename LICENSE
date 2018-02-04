@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -677,6 +678,11 @@ Public License instead of this License.  But first, please read
 MIT License
 
 Copyright (c) 2017 Melanie Huang
+=======
+MIT License
+
+Copyright (c) 2018 Melanie Huang
+>>>>>>> e7df2f6674660808795eaa882649e41b42ec1a35
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -695,4 +701,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+<<<<<<< HEAD
 >>>>>>> e636ae7d7429458a58a97011d829951b81406bb4
+=======
+>>>>>>> e7df2f6674660808795eaa882649e41b42ec1a35

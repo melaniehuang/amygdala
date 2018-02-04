@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # paint-machine
 
 
@@ -25,3 +26,7 @@ Use 8-Way Rotary Selector Switch to select between values
 Read signals in somehow... hmmmm
 
 Every 2 minutes it saves the canvas as an image and wipes it - this is so that it doesn't crash my computer.
+=======
+# amygdala
+Paint machine installation at No Vacancy for White Night
+>>>>>>> e7df2f6674660808795eaa882649e41b42ec1a35
