@@ -7,14 +7,13 @@
 
   These sensors use I2C communicate, at least 2 pins are required
   to interface
-
   Adafruit invests time and resources providing this open source code,
   please support Adafruit and open-source hardware by purchasing
   products from Adafruit!
 
   Written by Limor Fried/Ladyada for Adafruit Industries.
   BSD license, all text above must be included in any redistribution
-**********************************************************/
+*********************************************************/
 
 #include <Wire.h>
 #include "Adafruit_MPR121.h"
@@ -55,17 +54,32 @@ void loop() {
     // it if *is* touched and *wasnt* touched before, alert!
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 0)) {
       Serial.print(i); Serial.println(" touched"); 
-      Keyboard.write(48);
+      Keyboard.write(97);
     } 
     
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 1)) {
       Serial.print(i); Serial.println(" touched"); 
-      Keyboard.write(49);
+      Keyboard.write(98);
     } 
     
     if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 2)) {
       Serial.print(i); Serial.println(" touched"); 
-      Keyboard.write(50);
+      Keyboard.write(99);
+    } 
+    
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 3)) {
+      Serial.print(i); Serial.println(" touched"); 
+      Keyboard.write(100);
+    } 
+    
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 4)) {
+      Serial.print(i); Serial.println(" touched"); 
+      Keyboard.write(101);
+    } 
+    
+    if ((currtouched & _BV(i)) && !(lasttouched & _BV(i)) && (i == 5)) {
+      Serial.print(i); Serial.println(" touched"); 
+      Keyboard.write(102);
     } 
     // if it *was* touched and now *isnt*, alert!
 
